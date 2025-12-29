@@ -14,7 +14,20 @@ driver.implicitly_wait(10)
 
 
 driver.get ("https://www.calculator.net/")
-driver.find_element(By.LINK_TEXT,"Age Calculator")
+age_link = driver.find_element(By.LINK_TEXT,"Age Calculator")
 age_link.click()
 
+driver.find_element(By.LINK_TEXT,"FITNESS & HEALTH").click()
+
+url=driver.current_url
+print(url)
+
+if (url=="https://www.calculator.net/fitness-and-health-calculator.html"):
+    print("Test OK -URL as expected")
+
+else:
+    print("Test FAILED -URL as expected")
+
+
 driver.close()
+
