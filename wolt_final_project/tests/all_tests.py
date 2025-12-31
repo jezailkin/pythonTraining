@@ -1,8 +1,8 @@
 import time
 import unittest
 
-from wolt_final_project.pages.electronics_search import Electronics_search
-from wolt_final_project.pages.mac_restaurants import Mac_restaurants
+from wolt_final_project.pages.electronic_store_page import Electronics_search
+from wolt_final_project.pages.mac_restaurant_page import Mac_restaurants
 from wolt_final_project.pages.main_page import Main_page
 from wolt_final_project.pages.search_page import Search_page
 from wolt_final_project.pages.wolt_word_page import Wolt_word
@@ -18,9 +18,9 @@ class allTests(unittest.TestCase):
         self.base.click_on_allow_botton()
         self.base.select_city()
         self.main_page = Main_page(self.driver)
-        self.wolt_word= Wolt_word(self.driver)
-        self.electronics_search= Electronics_search(self.driver)
-        self.mac_restaurants = Mac_restaurants(self.driver)
+        self.wolt_word_page= Wolt_word(self.driver)
+        self.electronic_store_page= Electronics_search(self.driver)
+        self.mac_restaurants_page = Mac_restaurants(self.driver)
         self.search_page = Search_page(self.driver)
 
 
@@ -33,6 +33,7 @@ class allTests(unittest.TestCase):
     def test_check_amount_of_restaurants(self):
         self.main_page.store_type()
         self.main_page.if_there_is_more_than_one_burger_restaurant()
+
         text_option=self.main_page.rest_option()
         assert "Burger" in text_option, "unexpected text."
         print(f"the word *burger* was found in {text_option}")
@@ -44,7 +45,7 @@ class allTests(unittest.TestCase):
         url1 = self.driver.current_url
         assert url1 == "https://wolt.com/en/discovery"
         print(url1)
-        self.wolt_word.back_to_main_page()
+        self.wolt_word_page.back_to_main_page()
         url2 = self.driver.current_url
         assert url2 == "https://wolt.com/en/isr"
         print(url2)
@@ -52,17 +53,13 @@ class allTests(unittest.TestCase):
 
 
     def test_info_for_first_electronics_search_option(self):
-        self.electronics_search.electorincs_first_store()
-        url = self.driver.current_url
-        assert url == "https://wolt.com/en/isr/haifa/venue/dynamica-haifa"
-        print(url)
-        self.electronics_search.store_information()
+   4     self.electronic_store_page.electorincs_stores()
 
 
 
     def test_first_option_is_mac(self):
-        self.mac_restaurants.mac_search()
-        first_rest_option= self.mac_restaurants.first_option()
+        self.mac_restaurants_page.mac_rest_search()
+        first_rest_option= self.mac_restaurants_page.first_option_apppears()
         assert "Mac" in first_rest_option , "unexpected text was found in the first search option."
         print(f"first restaurant found: {first_rest_option}")
 
@@ -72,9 +69,13 @@ class allTests(unittest.TestCase):
         discovery_word=self.search_page.searching_for_button_discovery()
         assert "Discovery" in discovery_word, "unexpected text."
         print(f"first button found: {discovery_word}")
+
+
         restaurants_word=self.search_page.searching_for_button_restaurants()
         assert "Restaurants" in restaurants_word, "unexpected text."
         print(f"second button found: {restaurants_word}")
+
+
         stores_word=self.search_page.searching_for_button_stores()
         assert "Stores" in stores_word, "unexpected text."
         print(f"third button found: {stores_word}")

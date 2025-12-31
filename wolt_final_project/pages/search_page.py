@@ -7,6 +7,9 @@ class Search_page:
         self.driver = driver
 
 
+
+
+
     def searching_for_button_discovery(self):
         discovery_button = self.driver.find_elements(By.CLASS_NAME, "sysyh6h")[0]
         text_1=discovery_button.text
