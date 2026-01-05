@@ -1,6 +1,7 @@
 
 from selenium.webdriver import Keys
-from selenium.webdriver.common.by import By
+
+from wolt_final_project.locaters import MAC_RESTAURANT_PAGE
 
 
 class Mac_restaurants:
@@ -8,13 +9,13 @@ class Mac_restaurants:
         self.driver = driver
 
 
-    def mac_rest_search(self,rest="mac"):
-        search_box= self.driver.find_element(By.CLASS_NAME, "i131pb3d")
+    def rest_search_click(self, rest="mac"):
+        search_box= self.driver.find_element(*MAC_RESTAURANT_PAGE.SEARCH_BOX)
         search_box.click()
         search_box.send_keys(rest)
         search_box.send_keys(Keys.ENTER)
 
-    def first_option_apppears(self):
-        first_res = self.driver.find_elements(By.CSS_SELECTOR, 'a[data-test-id="venueCard.mac-david"]')        # text = first_res[0].text
+    def get_first_option(self):
+        first_res = self.driver.find_elements(*MAC_RESTAURANT_PAGE.FIRST_RES)
         text = first_res[0].text
         return text

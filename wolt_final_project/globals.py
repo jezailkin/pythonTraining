@@ -1,0 +1,8 @@
+HOME_PAGE = "https://wolt.com/en/isr"
+DISCOVERY_PAGE = "https://wolt.com/en/discovery"
+TEXT_EXIST= "Burger"
+WORD_FOUND="Electronics"
+FIRST_WORD_FOUND="Mac"
+FIRST_BUTTON="Discovery"
+SECOND_BUTTON="Restaurants"
+THIRD_BUTTON="Stores"

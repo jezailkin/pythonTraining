@@ -1,18 +1,22 @@
 from selenium.webdriver.common.by import By
 
+from wolt_final_project.locaters import ELECTRONICS_STORE_PAGE
+
 
 class Electronics_search:
     def __init__(self, driver):
         self.driver = driver
 
 
-    def electorincs_stores(self, store_type="Electronics"):
-        electronics_button = self.driver.find_element(By.PARTIAL_LINK_TEXT, store_type)
+    def electorincs_stores_click(self):
+        electronics_button = self.driver.find_element(*ELECTRONICS_STORE_PAGE.ELECTRONICS_BUTTON)
         electronics_button.click()
-        first_6_store_options =self.driver.find_element(By.CLASS_NAME, "d1r05llc.dgyvenz")(0,5)
-        print(first_6_store_options.text)
 
-
+    def get_store_text(self):
+        stores_options =self.driver.find_elements(*ELECTRONICS_STORE_PAGE.STORE_OPTIONS)[:6]
+        # for store in stores_options:
+        #     store.text
+        # return stores_options
 
     # def get_store_information(self):
     #     store_open_until = self.driver.find_elements(By.CLASS_NAME,"v1b3l2om")[1]
