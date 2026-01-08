@@ -13,6 +13,7 @@ class ELECTRONICS_STORE_PAGE:
 class MAIN_PAGE:
     RESTAURANT_OPTION = (By.PARTIAL_LINK_TEXT, "Restaurants")
     BURGER_REST=(By.PARTIAL_LINK_TEXT, "Burger")
+    WOLT_WORD_ICON = (By.ID, "lottie")
 
 
 class SEARCH_PAGE:
@@ -20,7 +21,7 @@ class SEARCH_PAGE:
     RESTAURANT_BUTTON = (By.CLASS_NAME, "sysyh6h")
     STORES_BUTTON = (By.CLASS_NAME, "sysyh6h")
 
-class WOLT_WORD_PAGE:
-    WOLT_WORD_ICON = (By.ID, "lottie")
+# class WOLT_WORD_PAGE:
+#     WOLT_WORD_ICON = (By.ID, "lottie")
 
 

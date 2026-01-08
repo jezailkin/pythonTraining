@@ -1,5 +1,3 @@
-from selenium.webdriver.common.by import By
-
 from wolt_final_project.locaters import MAIN_PAGE
 
 
@@ -7,6 +5,9 @@ class Main_page:
     def __init__(self, driver):
         self.driver = driver
 
+    def back_to_main_page(self):
+        wolt_word_icon = self.driver.find_element(*MAIN_PAGE.WOLT_WORD_ICON)
+        wolt_word_icon.click()
 
     def store_type_click(self):
         restaurants_option= self.driver.find_element(*MAIN_PAGE.RESTAURANT_OPTION)

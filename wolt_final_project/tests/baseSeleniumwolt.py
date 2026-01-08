@@ -8,7 +8,7 @@ class seleniumBaseWolt():
 
 
     def selenium_start_with_url(self, url):
-        print("**** Test start ****")
+        print("*Test start*")
         service = ChromeService(executable_path=ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service)
 
@@ -18,16 +18,16 @@ class seleniumBaseWolt():
         return self.driver
 
     def selenium_stop(self):
-        print("**** Test stop ****")
+        print("*Test stop*")
         self.driver.close()
 
     def click_on_allow_botton(self):
-        print("**** Test allow botton ****")
+        print("*Test allow botton*")
         allow_button = self.driver.find_element(By.CSS_SELECTOR, "button[data-test-id='allow-button']")
         allow_button.click()
 
     def select_city(self, city="Haifa"):
-        print("**** Test select city ****")
+        print("*Test select city*")
         Enter_delivery_address = self.driver.find_element(By.ID, "_R_tdj_")
         Enter_delivery_address.click()
         Enter_delivery_address.send_keys(city)

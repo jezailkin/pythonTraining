@@ -1,9 +1,7 @@
-from selenium.webdriver.common.by import By
-
 from wolt_final_project.locaters import ELECTRONICS_STORE_PAGE
 
 
-class Electronics_search:
+class ElectronicsSearchPage:
     def __init__(self, driver):
         self.driver = driver
 
@@ -14,9 +12,23 @@ class Electronics_search:
 
     def get_store_text(self):
         stores_options =self.driver.find_elements(*ELECTRONICS_STORE_PAGE.STORE_OPTIONS)[:6]
-        # for store in stores_options:
-        #     store.text
-        # return stores_options
+        return stores_options
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     # def get_store_information(self):
     #     store_open_until = self.driver.find_elements(By.CLASS_NAME,"v1b3l2om")[1]

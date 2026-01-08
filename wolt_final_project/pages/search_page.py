@@ -1,17 +1,9 @@
-from selenium.webdriver import Keys
-from selenium.webdriver.common.by import By
-
-from wolt_final_project.globals import DISCOVERY_PAGE
 from wolt_final_project.locaters import SEARCH_PAGE
 
 
-class Search_page:
+class SearchPage:
     def __init__(self, driver):
         self.driver = driver
-
-
-
-
 
     def searching_for_button_discovery(self):
         discovery_button = self.driver.find_elements(*SEARCH_PAGE.DISCOVERY_BUTTON)[0]
